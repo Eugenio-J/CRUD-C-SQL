@@ -102,7 +102,7 @@ namespace CRUDOperation
             txtaddress.Text = dt.ToString();
             txtsalary.Text = dt.ToString();
             dataGridView1.DataSource = dt;
-           
+
         }
 
         private void Exit_Click(object sender, EventArgs e)

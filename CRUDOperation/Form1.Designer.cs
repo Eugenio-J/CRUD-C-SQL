@@ -213,7 +213,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Simple CRUD ";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
