@@ -25,7 +25,7 @@ namespace CRUDOperation
         {
             SqlConnection conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=CrudDB;Integrated Security=True");
             conn.Open();
-            SqlCommand cmd = new SqlCommand($"insert into student01 values('{txtid.Text.ToString()}','{txtname.Text}','{txtaddress.Text}','{txtsalary.Text}')");
+            SqlCommand cmd = new SqlCommand($"insert into Person values('{txtname.Text}','{txtaddress.Text}','{txtsalary.Text}')");
             cmd.Connection = conn;
             cmd.ExecuteNonQuery();
             cleardata();
@@ -47,7 +47,7 @@ namespace CRUDOperation
             cmd.Connection = conn;
             conn.Open();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "update student01 set name='" + txtname.Text + "',Address='" + txtaddress.Text + "',salary='" + txtsalary.Text.ToString() + "' where id='" + txtid.Text.ToString() + "' ";
+            cmd.CommandText = "update Person set name='" + txtname.Text + "',Address='" + txtaddress.Text + "',salary='" + txtsalary.Text.ToString() + "' where id='" + txtid.Text.ToString() + "' ";
             cmd.ExecuteNonQuery();
             displaydata();
             cleardata();
@@ -64,7 +64,7 @@ namespace CRUDOperation
             cmd.Connection = conn;
             conn.Open();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from student01";
+            cmd.CommandText = "select * from Person";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -77,7 +77,7 @@ namespace CRUDOperation
             SqlConnection conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=CrudDB;Integrated Security=True");
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
-            string query = $"delete student01 where id='{txtid.Text.ToString()}'";
+            string query = $"delete Person where id='{txtid.Text.ToString()}'";
             cmd.CommandText = query;
             conn.Open();
             cmd.ExecuteNonQuery();
@@ -92,7 +92,7 @@ namespace CRUDOperation
             SqlCommand cmd = new SqlCommand();
             conn.Open();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"select * from student01 where id='{txtsearch.Text}'";
+            cmd.CommandText = $"select * from Person where id='{txtsearch.Text}'";
             cmd.Connection = conn;
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
